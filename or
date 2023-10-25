@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestión de Cursos</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Gestión de Cursos</h1>
+        <div class="curso">
+            <h2>Curso 1</h2>
+            <button class="add-estudiante">Agregar Estudiante</button>
+            
+            <div id="curso-buttons"></div> <!-- Aquí se agregarán los botones de curso -->
+
+            <div id="output"></div>
+
+            <script>
+                let estudianteCreado = false;
+                let clases = [];
+                let cursoButtonsContainer = document.getElementById("curso-buttons"); // Contenedor para botones de curso
+
+                document.querySelector(".add-estudiante").addEventListener("click", function() {
+                    estudianteCreado = true;
+                    document.getElementById("output").innerText = "Estudiante creado. Puede generar clases ahora.";
+                    
+                    // Crear botones para modificar y eliminar el curso
+                    if (estudianteCreado) {
+                        const modifyButton = document.createElement("button");
+                        modifyButton.textContent = "Modificar Curso";
+                        modifyButton.classList.add("modify-curso");
+                        modifyButton.addEventListener("click", function() {
+                            // Lógica para modificar el curso
+                            // Puedes implementar esta lógica aquí
+                        });
+
+                        const deleteButton = document.createElement("button");
+                        deleteButton.textContent = "Eliminar Curso";
+                        deleteButton.classList.add("delete-curso");
+                        deleteButton.addEventListener("click", function() {
+                            // Lógica para eliminar el curso
+                            // Puedes implementar esta lógica aquí
+                        });
+
+                        // Agregar botones al contenedor
+                        cursoButtonsContainer.appendChild(modifyButton);
+                        cursoButtonsContainer.appendChild(deleteButton);
+                    }
+                });
+            </script>
+
+            <div class="estudiantes">
+                <!-- Aquí se mostrarán los estudiantes -->
+            </div>
+            <div class="horario">
+                <!-- Aquí se mostrará el horario generado -->
+            </div>
+            <div class="horarios-disponibles">
+                <h3>Horarios Disponibles</h3>
+                <ul></ul>
+            </div>
+        </div>
+        <button class="add-curso">Agregar Nuevo Curso</button>
+    </div>
+
+    <script src="scrip.js"></script>
+</body>
+</html>
